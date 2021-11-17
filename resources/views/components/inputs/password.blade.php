@@ -1,0 +1,1 @@
+@include('components.inputs.text', ['type' => 'password'])
