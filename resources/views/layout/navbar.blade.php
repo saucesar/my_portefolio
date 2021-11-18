@@ -10,13 +10,15 @@
         <div class="collapse navbar-collapse" id="homeNavbar">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link text-light" aria-current="page" href="{{ route('home') }}">Inicio</a>
+                    <a class="nav-link text-light @if(!isset($active)) text-dark @endif" aria-current="page" href="{{ route('home') }}">Inicio</a>
                 </li>
+                @if(Auth::user())
                 <li class="nav-item">
-                    <a class="nav-link text-light" aria-current="page" href="{{ route('projects') }}">Projetos</a>
+                    <a class="nav-link text-light @if(isset($active) && $active == 'projects') text-dark @endif" aria-current="page" href="{{ route('projects.index') }}">Projetos</a>
                 </li>
+                @endif
                 <li class="nav-item">
-                    <a class="nav-link text-light" aria-current="page" href="{{ route('home') }}">Contato</a>
+                    <a class="nav-link text-light @if(isset($active) && $active == 'contacts') text-dark @endif" aria-current="page" href="{{ route('contacts') }}">Contato</a>
                 </li>
             </ul>
         </div>
