@@ -1,4 +1,4 @@
-@extends('layout.app')
+@extends('layout.app', ['active' => 'projects'])
 
 @section('content')
 <div class="container">
