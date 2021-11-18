@@ -11,8 +11,8 @@ class HomeController extends Controller
         return view('home');
     }
 
-    public function projects()
+    public function contacts()
     {
-        return view('projects.index');
+        return view('contacts.index');
     }
 }
