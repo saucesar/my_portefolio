@@ -9,9 +9,9 @@ class ProjectsController extends Controller
     public function index()
     {
         $data = [
-            'languages' => \App\Models\ProgramingLanguage::all(),
+            'projects' => \App\Models\Project::all(),
         ];
-
+        
         return view('projects.index', $data);
     }
 
