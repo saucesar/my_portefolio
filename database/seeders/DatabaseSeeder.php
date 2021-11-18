@@ -12,6 +12,7 @@ class DatabaseSeeder extends Seeder
             UserSeeder::class,
             ProgramingLanguageSeeder::class,
             FrameworkSeeder::class,
+            ProjectSeeder::class,
         ]);
     }
 }
