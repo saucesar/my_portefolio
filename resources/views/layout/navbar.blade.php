@@ -20,5 +20,22 @@
                 </li>
             </ul>
         </div>
+        @if(Auth::user())
+        <div class="btn-group dropstart">
+            <button class="btn btn-primary dropdown-toggle" type="button" id="userDropdownMenu" data-bs-toggle="dropdown" aria-expanded="false">
+                {{ Auth::user()->name }}
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="userDropdownMenu">
+                <li><a class="dropdown-item" href="#">Configurações</a></li>
+                <li><hr class="dropdown-divider"></li>
+                <li>
+                    <form action="{{ route('logout') }}" method="post">
+                        @csrf
+                        <button class="btn btn-light" type="submit">Sair</button>
+                    </form>
+                </li>
+            </ul>
+        </div>
+        @endif
     </div>
 </nav>
