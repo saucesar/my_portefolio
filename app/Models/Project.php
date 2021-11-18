@@ -20,4 +20,14 @@ class Project extends Model
     {
         return $this->belongsTo(Framework::class);
     }
+
+    public function images()
+    {
+        return $this->morphMany(Image::class, 'imageable');
+    }
+
+    public function imagesBase64()
+    {
+        return $this->morphMany(ImageBase64::class, 'imageable');
+    }
 }
