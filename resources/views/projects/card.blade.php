@@ -7,6 +7,12 @@
     <div class="card-body">
         <h5 class="card-title">{{ $project->name }}</h5>
         <p class="card-text text-justify text-truncate">{{ $project->description }}</p>
+        <div class="d-flex justify-content-center">
+            <img src="{{ $project->language->iconUrl() }}" class="language-icon mr-1" title="{{ $project->language->name }}" alt="language-icon">
+            @if(isset($project->framework))
+            <img src="{{ $project->framework->iconUrl() }}" class="framework-icon mr-1" title="{{ $project->framework->name }}" alt="framework-icon">
+            @endif
+        </div>
         <div class="row text-center">
         @if(isset($project->link))
             <a class="col text-muted mr-5" href="{{ $project->link }}" target="_blank" title="Link do projeto em funcionamento">
