@@ -14,8 +14,8 @@ class CreateFrameworksTable extends Migration
             $table->string('icon_path')->nullable();
             $table->text('description')->nullable();
             
-            $table->unsignedInteger('programing_laguage_id');
-            $table->foreign('programing_laguage_id')->references('id')->on('programing_laguages');
+            $table->unsignedInteger('programing_language_id');
+            $table->foreign('programing_language_id')->references('id')->on('programing_languages');
 
             $table->timestamps();
         });
