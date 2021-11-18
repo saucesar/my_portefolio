@@ -4,11 +4,11 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateProgramingLaguagesTable extends Migration
+class CreateProgramingLanguagesTable extends Migration
 {
     public function up()
     {
-        Schema::create('programing_laguages', function (Blueprint $table) {
+        Schema::create('programing_languages', function (Blueprint $table) {
             $table->id();
             $table->string('name');
             $table->string('icon_path')->nullable();
@@ -18,6 +18,6 @@ class CreateProgramingLaguagesTable extends Migration
 
     public function down()
     {
-        Schema::dropIfExists('programing_laguages');
+        Schema::dropIfExists('programing_languages');
     }
 }
