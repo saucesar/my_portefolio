@@ -9,5 +9,15 @@ class ProgramingLaguage extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['name'];
+    protected $fillable = ['name', 'icon_path'];
+
+    public function frameworks()
+    {
+        return $this->hasMany(Framework::class);
+    }
+    
+    public function iconUrl()
+    {
+        return $this->icon_path ? url($this->icon_path) : '';
+    }
 }

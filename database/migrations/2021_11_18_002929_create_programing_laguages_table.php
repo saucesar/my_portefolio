@@ -11,6 +11,7 @@ class CreateProgramingLaguagesTable extends Migration
         Schema::create('programing_laguages', function (Blueprint $table) {
             $table->id();
             $table->string('name');
+            $table->string('icon_path')->nullable();
             $table->timestamps();
         });
     }
