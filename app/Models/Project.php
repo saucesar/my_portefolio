@@ -13,7 +13,7 @@ class Project extends Model
 
     public function language()
     {
-        return $this->belongsTo(ProgramingLanguage::class);
+        return $this->belongsTo(ProgramingLanguage::class, 'programing_language_id', 'id');
     }
 
     public function framework()
