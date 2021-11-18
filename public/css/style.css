@@ -1,8 +1,21 @@
 .card-project {
     max-width: 20em;
-    min-height: 18em;
+    min-height: 27em;
 }
 
 .text-justify {
     text-align: justify;
+}
+
+.img-cover {
+    object-fit: cover;
+}
+
+.project-img {
+    width: inherit;
+    height: 12em;
+}
+
+.card-zoom {
+    zoom: 105%;
 }
