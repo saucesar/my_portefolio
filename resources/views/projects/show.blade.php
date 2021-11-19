@@ -22,10 +22,9 @@
             <div class="card card-body mb-2 card-project-details-50">
                 <h5 class="text-center">Tecnologias</h5>
                 <div class="d-flex justify-content-center">
-                    <img src="{{ $project->language->iconUrl() }}" class="language-icon" title="{{ $project->language->name }}" alt="language-icon">
-                    @if(isset($project->framework))
-                    <img src="{{ $project->framework->iconUrl() }}" class="framework-icon" title="{{ $project->framework->name }}" alt="framework-icon">
-                    @endif
+                    @foreach ($project->tecnologies as $tecnology)                        
+                    <img src="{{ $tecnology->iconUrl() }}" class="language-icon" title="{{ $tecnology->name }}" alt="language-icon">
+                    @endforeach
                 </div>
             </div>
             <div class="card card-body mb-2 card-project-details-50">
