@@ -30,4 +30,9 @@ class Project extends Model
     {
         return $this->morphMany(ImageBase64::class, 'imageable');
     }
+
+    public function tecnologies()
+    {
+        return $this->hasManyThrough(Tecnology::class, TecnologyProject::class, 'project_id', 'id', 'id','tecnology_id');
+    }
 }
