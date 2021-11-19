@@ -25,7 +25,9 @@ Route::prefix('auth')->group(function (){
     Route::post('logout', [AuthController::class, 'logout'])->name('logout');
 });
 
+Route::get('projects/{project}', [ProjectsController::class, 'show'])->name('projects.show');
+
 Route::middleware(['auth'])->prefix('admin')->group(function () {
     Route::get('/', [ProjectsController::class, 'index']);
-    Route::resource('projects', ProjectsController::class);
+    Route::resource('projects', ProjectsController::class)->except(['show']);
 });
