@@ -14,14 +14,19 @@
         </div>
         <div class="row text-center">
         @if(isset($project->link))
-            <a class="col text-muted mr-5" href="{{ $project->link }}" target="_blank" title="Link do projeto em funcionamento">
+        <div class="col">
+
+            <a class="btn btn-primary mr-5" href="{{ $project->link }}" target="_blank" title="Link do projeto em funcionamento">
                 <i class="fas fa-globe-americas"></i>
             </a>
+        </div>
         @endif
         @if(isset($project->github_url))
-            <a class="col text-muted mr-5" href="{{ $project->github_url }}" target="_blank" title="Link do projeto no GitHub">
+        <div class="col">
+            <a class="btn btn-primary mr-5" href="{{ $project->github_url }}" target="_blank" title="Link do projeto no GitHub">
                 <i class="fab fa-github"></i>
             </a>
+        </div>
         @endif
         </div>
     </div>
