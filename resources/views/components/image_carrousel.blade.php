@@ -1,5 +1,16 @@
-<div id="{{ $id }}" class="carousel slide" data-ride="carousel">
+<div id="{{ $id }}" class="carousel slide {{  $class ?? '' }}" data-ride="carousel" style="height: 100%;">
     <div class="carousel-inner">
+        @if(count($images) == 0 && count($images_base_64) == 0)
+        <div class="carousel-item active">
+            @if (isset($with_img_link) && $with_img_link)
+            <a href="{{ $image->url() }}" target="_blank">
+                <img src="{{ asset('images/default_project_image.jpg') }}" class="img-cover rounded mx-auto d-block {{ $img_class ?? '' }}" alt="image">
+            </a>
+            @else
+            <img src="{{ asset('images/default_project_image.jpg') }}" class="img-cover rounded mx-auto d-block {{ $img_class ?? '' }}" alt="image">
+            @endif
+        </div>    
+        @endif
         <?php $active = true ?>
         @foreach ($images as $image)
         <div class="carousel-item @if($active) active <?php $active = false ?> @endif">
