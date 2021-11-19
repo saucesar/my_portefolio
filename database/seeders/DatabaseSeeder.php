@@ -13,6 +13,7 @@ class DatabaseSeeder extends Seeder
             ProgramingLanguageSeeder::class,
             FrameworkSeeder::class,
             ProjectSeeder::class,
+            TecnologySeeder::class,
         ]);
     }
 }
