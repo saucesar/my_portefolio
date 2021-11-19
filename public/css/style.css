@@ -24,3 +24,19 @@
     width: 40px;
     height: 40px;
 }
+
+.card-project-image, .card-project-description, .card-project-details {
+    height: 25em;
+}
+
+.card-project-details-50 {
+    height: 12.25em;
+}
+
+.mouse-pointer {
+    cursor: pointer;
+}
+
+.h-50 {
+    height: 40%;
+}
