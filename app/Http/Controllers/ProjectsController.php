@@ -31,15 +31,15 @@ class ProjectsController extends Controller
         //
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function show($id)
     {
-        //
+        try {
+            $data = ['project' => \App\Models\Project::findOrFail($id)];
+
+            return view('projects.show', $data);
+        } catch(\Exception $e) {
+            return back()->with('error', $e->getMessage());
+        }
     }
 
     /**
