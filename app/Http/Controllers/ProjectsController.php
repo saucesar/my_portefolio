@@ -9,7 +9,7 @@ class ProjectsController extends Controller
     public function index()
     {
         $data = [
-            'projects' => \App\Models\Project::all(),
+            'projects' => \App\Models\Project::paginate(6),
         ];
         
         return view('projects.index', $data);
