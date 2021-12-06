@@ -3,15 +3,9 @@
 @section('content')
 <div class="container">
     <div class="d-flex justify-content-center mb-5">
-        <h1>Destaques</h1>
+        <h1>Projetos</h1>
     </div>
-    <div class="row row-cols-lg-4 row-cols-md-3 row-cols-sm-1">
-        @foreach ($projects as $project)
-        <div class="col-lg-4 col-md-6 col-sm-12">
-            @include('projects.card')
-        </div>
-        @endforeach
-    </div>
+    @include('projects.list')
 </div>
 @endsection
 
