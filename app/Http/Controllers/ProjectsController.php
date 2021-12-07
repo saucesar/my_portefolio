@@ -10,22 +10,12 @@ class ProjectsController extends Controller
     {
         $data = [
             'projects' => \App\Models\Project::paginate(6),
+            'tecnologies' => \App\Models\Tecnology::all(),
         ];
-        
+
         return view('projects.index', $data);
     }
 
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
         //
@@ -34,7 +24,10 @@ class ProjectsController extends Controller
     public function show($id)
     {
         try {
-            $data = ['project' => \App\Models\Project::findOrFail($id)];
+            $data = [
+                'project' => \App\Models\Project::findOrFail($id),
+                'tecnologies' => \App\Models\Tecnology::all(),
+            ];
 
             return view('projects.show', $data);
         } catch(\Exception $e) {
@@ -42,27 +35,19 @@ class ProjectsController extends Controller
         }
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function update(Request $request, $id)
     {
-        //
+        try {
+            $project = \App\Models\Project::findOrFail($id);
+            
+            $project->update($request->only($project->getFillable()));
+            $project->projectTecnology()->delete();
+            $project->assossiateTecnologies($request->tecnologies);
+
+            return back()->with('success', 'Projeto atualizado!');
+        } catch(\Exception $e) {
+            return back()->with('error', $e->getMessage())->withInput();
+        }
     }
 
     /**
