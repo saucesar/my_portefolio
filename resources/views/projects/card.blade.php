@@ -9,7 +9,7 @@
         <p class="card-text text-justify text-truncate">{{ $project->description }}</p>
         <div class="d-flex justify-content-center">
             @foreach ($project->tecnologies as $tecnology)                        
-                <img src="{{ $tecnology->iconUrl() }}" class="language-icon" title="{{ $tecnology->name }}" alt="language-icon">
+                <img src="{{ $tecnology->icon->url() }}" class="language-icon" title="{{ $tecnology->name }}" alt="language-icon">
             @endforeach
         </div>
         <div class="row text-center">
