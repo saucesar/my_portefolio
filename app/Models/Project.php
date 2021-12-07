@@ -9,12 +9,7 @@ class Project extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['name', 'description', 'link', 'github_url', 'programing_language_id', 'framework_id'];
-
-    public function language()
-    {
-        return $this->belongsTo(ProgramingLanguage::class, 'programing_language_id', 'id');
-    }
+    protected $fillable = ['name', 'description', 'link', 'github_url'];
 
     public function framework()
     {
