@@ -8,6 +8,14 @@
         @include('components.inputs.text_area', ['name' => 'description', 'label' => 'Descrição', 'value' => $project->description ?? old('description')])
     </div>
 </div>
+<div class="row row-cols-lg-2 row-cols-md-2 row-cols-sm-1 mb-2">
+    <div class="col-lg-6 col-md-6 col-md-12">
+        @include('components.inputs.text', ['name' => 'link', 'label' => 'Link', 'placeholder' => 'Link de acesso ao projeto', 'value' => $project->link ?? old('link')])
+    </div>
+    <div class="col-lg-6 col-md-6 col-md-12">
+        @include('components.inputs.text', ['name' => 'github_url', 'label' => 'Github', 'placeholder' => 'Link para o github do projeto', 'value' => $project->github_url ?? old('github_url')])
+    </div>
+</div>
 <div class="row mb-2">
     <div class="col">
         <p>Tecnologias</p>
@@ -17,7 +25,7 @@
             <div class="card card-body shadow">
             @include('components.inputs.check', ['name' => 'tecnologies[]', 'label' => $tecnology->name,
                                                 'id' => 'tec-'.$tecnology->id, 'value' => $tecnology->id,
-                                                'imgURL' => $tecnology->iconUrl(),
+                                                'imgURL' => $tecnology->icon->url(),
                                                 'checked' => (isset($project) && $project->containsTecnology($tecnology->id) ? true : in_array($tecnology->id, old('tecnologies', [])))])
             </div>
         </div>
