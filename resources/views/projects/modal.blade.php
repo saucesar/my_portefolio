@@ -13,6 +13,7 @@
                 @endif
                 @csrf
                 @include('projects.form')
+                <input type="hidden" name="modalId" value="{{ $id }}">
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
