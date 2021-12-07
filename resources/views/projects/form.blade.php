@@ -38,7 +38,7 @@
 </div>
 <div class="row mb-2">
     <div class="col">
-        @include('components.inputs.images', ['name' => 'images', 'id' => 'images', 'label' => 'Imagens', 'collapseImagesPreviewId' => 'collapse-images-preview'])
+        @include('components.inputs.images', ['name' => 'images[]', 'id' => 'images', 'label' => 'Imagens', 'collapseImagesPreviewId' => 'collapse-images-preview'])
     </div>
 </div>
 <div class="row mb-2">
