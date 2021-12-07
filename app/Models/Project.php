@@ -35,4 +35,16 @@ class Project extends Model
     {
         return $this->hasManyThrough(Tecnology::class, TecnologyProject::class, 'project_id', 'id', 'id','tecnology_id');
     }
+
+    public function containsTecnology(int $id)
+    {
+        $contain = false;
+
+        foreach($this->tecnologies as $tec) {
+            $contain = ($tec->id == $id);
+            if($contain) { break; }
+        }
+        
+        return $contain;
+    }
 }
