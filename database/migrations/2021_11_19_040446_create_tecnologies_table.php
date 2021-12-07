@@ -11,8 +11,8 @@ class CreateTecnologiesTable extends Migration
         Schema::create('tecnologies', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('icon_path');
             $table->text('description')->nullable();
+            $table->text('link')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });
