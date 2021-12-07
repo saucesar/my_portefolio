@@ -40,3 +40,21 @@
 .h-50 {
     height: 40%;
 }
+
+.img-cover {
+    object-fit: cover;
+}
+
+.sized-preview-img {
+    max-width: 10em;
+    min-width: 10em;
+    max-height: 10em;
+    min-height: 10em;
+}
+
+.sized-img-card {
+    min-width: 10em;
+    max-width: 10em;
+    min-height: 12em;
+    max-height: 12em;
+}
