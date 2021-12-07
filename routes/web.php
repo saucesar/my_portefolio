@@ -29,5 +29,5 @@ Route::get('projects/{project}', [ProjectsController::class, 'show'])->name('pro
 
 Route::middleware(['auth'])->prefix('admin')->group(function () {
     Route::get('/', [ProjectsController::class, 'index']);
-    Route::resource('projects', ProjectsController::class)->except(['show']);
+    Route::resource('projects', ProjectsController::class)->except(['show', 'create', 'edit']);
 });
