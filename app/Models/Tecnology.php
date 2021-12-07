@@ -10,10 +10,10 @@ class Tecnology extends Model
 {
     use HasFactory, SoftDeletes;
 
-    protected $fillable = ['name', 'description', 'icon_path'];
+    protected $fillable = ['name', 'description', 'link'];
 
-    public function iconUrl()
+    public function icon()
     {
-        return url($this->icon_path);
+        return $this->morphOne(Image::class, 'imageable');
     }
 }
