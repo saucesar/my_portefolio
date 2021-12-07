@@ -6,7 +6,7 @@
                 <h5 class="modal-title" id="{{ $id }}Label">{{ $modal_title }}</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <form action="@if(isset($project)) {{ route('projects.update', $project->id) }} @else {{ route('projects.store') }} @endif" method="POST">
+            <form action="@if(isset($project)) {{ route('projects.update', $project->id) }} @else {{ route('projects.store') }} @endif" method="POST" enctype="multipart/form-data">
                 <div class="modal-body">
                 @if(isset($project))
                 @method('put') 
