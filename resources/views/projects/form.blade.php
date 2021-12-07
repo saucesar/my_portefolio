@@ -19,10 +19,13 @@
 <div class="row mb-2">
     <div class="col">
         <p>Tecnologias</p>
-        <div class="row row-cols-lg-4 row-cols-md-4 row-cols-sm-2">
+        @error('tecnologies')
+        <small class="text-danger">{{ $message }}</small>
+        @enderror
+        <div class="row row-cols-lg-4 row-cols-md-4 row-cols-sm-2 mt-2">
         @foreach ($tecnologies as $tecnology)
         <div class="col-lg-3 col-md-3 col-sm-6 mb-2">
-            <div class="card card-body shadow">
+            <div class="card card-body shadow @error('tecnologies') border-danger @enderror">
             @include('components.inputs.check', ['name' => 'tecnologies[]', 'label' => $tecnology->name,
                                                 'id' => 'tec-'.$tecnology->id, 'value' => $tecnology->id,
                                                 'imgURL' => $tecnology->icon->url(),
