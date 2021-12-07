@@ -7,7 +7,7 @@
         <form action="{{ route('projects.destroy', $project->id) }}" method="post">
             @csrf
             @method('delete')
-            <button class="btn btn-sm btn-danger" type="submit" onclick="return confirm('Tem certeza');"
+            <button class="btn btn-sm btn-danger" type="submit" onclick="return confirm('Tem certeza?');"
                 title="Deletar">
                 <i class="fas fa-trash"></i>
             </button>
