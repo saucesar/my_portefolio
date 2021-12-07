@@ -31,6 +31,18 @@ class Project extends Model
         return $this->hasManyThrough(Tecnology::class, TecnologyProject::class, 'project_id', 'id', 'id','tecnology_id');
     }
 
+    public function assossiateTecnologies(array $tecnologyIDs)
+    {
+        foreach($tecnologyIDs as $tecnology_id) {
+            \App\Models\TecnologyProject::create(['tecnology_id' => $tecnology_id, 'project_id' => $this->id]);
+        }
+    }
+
+    public function projectTecnology()
+    {
+        return $this->hasMany(TecnologyProject::class, 'project_id', 'id');
+    }
+
     public function containsTecnology(int $id)
     {
         $contain = false;
