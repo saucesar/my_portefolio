@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\Projects\StoreRequest;
+use App\Http\Requests\Projects\UpdateRequest;
 use Illuminate\Http\Request;
 
 class ProjectsController extends Controller
@@ -16,9 +18,16 @@ class ProjectsController extends Controller
         return view('projects.index', $data);
     }
 
-    public function store(Request $request)
+    public function store(StoreRequest $request)
     {
-        //
+        try {
+            $project = \App\Models\Project::create($request->all());
+            $project->assossiateTecnologies($request->tecnologies);
+
+            return back()->with('success', 'Projeto atualizado!');
+        } catch(\Exception $e) {
+            return back()->with('error', $e->getMessage())->withInput();
+        }
     }
 
     public function show($id)
@@ -35,7 +44,7 @@ class ProjectsController extends Controller
         }
     }
 
-    public function update(Request $request, $id)
+    public function update(UpdateRequest $request, $id)
     {
         try {
             $project = \App\Models\Project::findOrFail($id);
@@ -50,14 +59,17 @@ class ProjectsController extends Controller
         }
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function destroy($id)
     {
-        //
+        try {
+            $project = \App\Models\Project::findOrFail($id);
+            $project->delete();
+            
+            session()->flash('success', 'Projeto deletado!');
+
+            return redirect()->route('projects.index');
+        } catch(\Exception $e) {
+            return back()->with('error', $e->getMessage());
+        }
     }
 }
