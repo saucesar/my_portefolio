@@ -13,7 +13,9 @@ class CreateImageBase64sTable extends Migration
             $table->string('extension');
             $table->longText('base64');
             $table->morphs('imageable');
+
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

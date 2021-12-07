@@ -18,6 +18,7 @@ class CreateTecnologyProjectsTable extends Migration
             $table->foreign('tecnology_id')->references('id')->on('tecnologies');
 
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

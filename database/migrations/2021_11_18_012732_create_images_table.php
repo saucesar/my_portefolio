@@ -12,7 +12,9 @@ class CreateImagesTable extends Migration
             $table->id();
             $table->string('path');
             $table->morphs('imageable');
+
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

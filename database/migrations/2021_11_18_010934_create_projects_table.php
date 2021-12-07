@@ -14,7 +14,9 @@ class CreateProjectsTable extends Migration
             $table->text('description')->nullable();
             $table->text('link')->nullable();
             $table->text('github_url')->nullable();
+            
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
