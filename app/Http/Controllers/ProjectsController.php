@@ -23,7 +23,10 @@ class ProjectsController extends Controller
         try {
             $project = \App\Models\Project::create($request->all());
             $project->assossiateTecnologies($request->tecnologies);
-
+            if($request->has('images')) {
+                $this->saveImages($project, $request->images);
+            }
+            
             return back()->with('success', 'Projeto atualizado!');
         } catch(\Exception $e) {
             return back()->with('error', $e->getMessage())->withInput();
@@ -52,6 +55,9 @@ class ProjectsController extends Controller
             $project->update($request->only($project->getFillable()));
             $project->projectTecnology()->delete();
             $project->assossiateTecnologies($request->tecnologies);
+            if($request->has('images')) {
+                $this->saveImages($project, $request->images);
+            }
 
             return back()->with('success', 'Projeto atualizado!');
         } catch(\Exception $e) {
@@ -70,6 +76,23 @@ class ProjectsController extends Controller
             return redirect()->route('projects.index');
         } catch(\Exception $e) {
             return back()->with('error', $e->getMessage());
+        }
+    }
+
+    public function saveImages(\App\Models\Project $project, Array $images)
+    {
+        if(env('FORCE_SAVE_IMG_BASE64', false)) {
+            foreach($images as $img) {
+                if($img->isValid()){
+                    $project->imagesBase64()->create(['extension' => $img->getMimeType(), 'base64' => base64_encode($img->get())]);
+                }
+            }
+        } else {
+            foreach($images as $img) {
+                if($img->isValid()){
+                    $project->images()->create(['path' => $img->store("images/projects/$project->id/", 'public')]);
+                }
+            }
         }
     }
 }
