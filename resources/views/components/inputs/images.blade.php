@@ -1,5 +1,5 @@
 <label class="mb-2" for="{{ $name }}">{{ $label }}</label>
-<input type="file" class="form-control @error($name) is-invalid @enderror" name="{{ $name }}" id="{{ $id ?? $name }}" accept="image/*" multiple
+<input type="file" class="form-control @error($name) is-invalid @enderror" name="{{ $name }}" id="{{ $id ?? $name }}" accept="image/jpg,image/jpeg,image/png" multiple
        onchange="loadImages(event)" @if(!isset($required) || isset($required) && $required) required @endif >
 <input type="file" accept="image/*" name="temp-{{ $name }}" id="temp-{{ $id ?? $name }}" style="display: none;" >
 @error($name)
