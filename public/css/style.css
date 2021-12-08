@@ -43,6 +43,7 @@
 
 .img-cover {
     object-fit: cover;
+    max-width: inherit;
 }
 
 .sized-preview-img {
@@ -57,4 +58,9 @@
     max-width: 10em;
     min-height: 12em;
     max-height: 12em;
+}
+
+.img-carrousel {
+    max-width: inherit;
+    height: 12em;
 }
