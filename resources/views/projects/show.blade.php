@@ -12,7 +12,7 @@
         <div class="col-lg-6 col-md-6 col-sm-12">
             <div class="card card-body mb-4 card-project-image shadow">
                 <h5 class="text-center">Imagens</h5>
-                @include('components.image_carrousel', ['id' => 'img-carr-project'.($project->id), 'class' => 'mb-4', 'with_controls' => true, 'with_img_link' => true, 'img_class' => 'img-carrousel-show','images' => $project->images, 'images_base_64' => $project->imagesBase64])
+                @include('components.image_carrousel', ['id' => 'img-carr-project'.($project->id), 'class' => 'mb-4', 'with_img_link' => true, 'img_class' => 'img-carrousel-show','images' => $project->images, 'images_base_64' => $project->imagesBase64])
             </div>
         </div>
         <div class="col-lg-3 col-md-6 col-sm-12 card-project-description d-flex flex-column">
@@ -23,6 +23,22 @@
             @include('projects.links')
         </div>
     </div>
+    @if(Auth::user())
+    <div class="row mb-2">
+        <div class="col">
+            <div class="card card-body shadow-lg">
+                <div class="w-100 d-inline-flex overflow-auto">
+                    @foreach ($project->images as $img)
+                    @include('components.cards.image', ['img' => $img])
+                    @endforeach
+                    @foreach ($project->imagesBase64 as $img)
+                    @include('components.cards.image_base_64', ['img' => $img])
+                    @endforeach
+                </div>
+            </div>
+        </div>
+    </div>
+    @endif
 </div>
 @endsection
 
