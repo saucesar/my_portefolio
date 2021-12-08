@@ -8,6 +8,8 @@ class ProjectSeeder extends Seeder
 {
     public function run()
     {
-        \App\Models\Project::factory(10)->create();
+        if(env('APP_ENV') == 'local') {
+            \App\Models\Project::factory(10)->create();
+        }
     }
 }
