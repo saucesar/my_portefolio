@@ -8,12 +8,12 @@
             </div>
             <form action="@if(isset($project)) {{ route('projects.update', $project->id) }} @else {{ route('projects.store') }} @endif" method="POST" enctype="multipart/form-data">
                 <div class="modal-body">
-                @if(isset($project))
-                @method('put') 
-                @endif
-                @csrf
-                @include('projects.form')
-                <input type="hidden" name="modalId" value="{{ $id }}">
+                    @if(isset($project))
+                    @method('put') 
+                    @endif
+                    @csrf
+                    @include('projects.form')
+                    <input type="hidden" name="modalId" value="{{ $id }}">
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
