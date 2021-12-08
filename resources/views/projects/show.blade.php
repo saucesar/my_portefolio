@@ -12,7 +12,7 @@
         <div class="col-lg-6 col-md-6 col-sm-12">
             <div class="card card-body mb-4 card-project-image shadow">
                 <h5 class="text-center">Imagens</h5>
-                @include('components.image_carrousel', ['id' => 'img-carr-project'.($project->id), 'class' => 'mb-4','images' => $project->images, 'images_base_64' => $project->imagesBase64])
+                @include('components.image_carrousel', ['id' => 'img-carr-project'.($project->id), 'class' => 'mb-4', 'with_controls' => true, 'with_img_link' => true, 'img_class' => 'img-carrousel-show','images' => $project->images, 'images_base_64' => $project->imagesBase64])
             </div>
         </div>
         <div class="col-lg-3 col-md-6 col-sm-12 card-project-description d-flex flex-column">
