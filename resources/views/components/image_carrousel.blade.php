@@ -3,7 +3,7 @@
         @if(count($images) == 0 && count($images_base_64) == 0)
         <div class="carousel-item active">
             @if (isset($with_img_link) && $with_img_link)
-            <a href="{{ $image->url() }}" target="_blank">
+            <a href="{{ asset('images/default_project_image.jpg') }}" target="_blank">
                 <img src="{{ asset('images/default_project_image.jpg') }}" class="img-cover rounded mx-auto d-block {{ $img_class ?? '' }}" alt="image">
             </a>
             @else
@@ -29,7 +29,7 @@
         </div>
         @endforeach
     </div>
-    @if (isset($with_controls) && $with_controls)        
+    @if(count($images) > 0 || count($images_base_64) > 0)        
     <button class="carousel-control-prev" type="button" data-bs-target="#{{ $id }}" data-bs-slide="prev">
         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
         <span class="visually-hidden">Previous</span>
