@@ -3,6 +3,7 @@
 use App\Http\Controllers\ProjectsController;
 use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\ImagesController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -30,4 +31,6 @@ Route::get('projects/{project}', [ProjectsController::class, 'show'])->name('pro
 Route::middleware(['auth'])->prefix('admin')->group(function () {
     Route::get('/', [ProjectsController::class, 'index']);
     Route::resource('projects', ProjectsController::class)->except(['show', 'create', 'edit']);
+
+    Route::delete('images/{image}/{type?}', [ImagesController::class, 'destroy'])->name('images.destroy');
 });
