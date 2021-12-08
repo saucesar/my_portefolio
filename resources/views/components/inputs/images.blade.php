@@ -42,7 +42,7 @@
         var img_link = "<a href='"+url+"' target='_blank' rel='noopener noreferrer'>";
         var image = "<img src='"+URL.createObjectURL(file)+"' class='card-img-top img-cover sized-preview-img' alt='image'>";
         var btn_remove = '<button type="button" class="btn btn-block btn-danger" onclick="removeImage('+index+');">Remover</button>'
-        var img_container = '<div class="card sized-img-card mb-2 mr-2" id="'+img_container_id+'">'+img_link+image+'</a>'+btn_remove+'</div>';
+        var img_container = '<div class="card sized-img-card mb-2 me-2" id="'+img_container_id+'">'+img_link+image+'</a>'+btn_remove+'</div>';
         return img_container;
     }
 
